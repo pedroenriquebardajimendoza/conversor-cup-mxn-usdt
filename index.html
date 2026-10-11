@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0f172a">
+<title>Conversor CUP · MXN · USDT</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main class="app">
+  <header><h1>Conversor</h1><p class="sub">CUP · MXN · USDT</p></header>
+
+  <section class="card">
+    <div class="card-head">
+      <h2>Tasas de conversión</h2>
+      <button id="resetRates" class="btn ghost small" type="button">Restablecer tasas</button>
+    </div>
+    <label class="field">
+      <span>pPc · CUP por 1 USDT</span>
+      <input id="ratePpc" type="text" inputmode="decimal" autocomplete="off">
+      <small class="err" id="errPpc"></small>
+    </label>
+    <label class="field">
+      <span>pmxn · MXN por 1 USDT</span>
+      <input id="ratePmxn" type="text" inputmode="decimal" autocomplete="off">
+      <small class="err" id="errPmxn"></small>
+    </label>
+    <p class="derived" id="derived"></p>
+  </section>
+
+  <section class="card">
+    <h2>Cantidad</h2>
+    <div class="seg" id="fromSeg" role="radiogroup" aria-label="Moneda de origen">
+      <button type="button" data-cur="CUP">CUP</button>
+      <button type="button" data-cur="MXN">MXN</button>
+      <button type="button" data-cur="USDT">USDT</button>
+    </div>
+    <div class="amount-row">
+      <input id="amount" type="text" inputmode="decimal" placeholder="0" autocomplete="off" aria-label="Cantidad">
+      <span class="cur-tag" id="fromTag">CUP</span>
+    </div>
+    <small class="err" id="errAmount"></small>
+    <div class="actions">
+      <button id="swap" class="btn" type="button">⇅ Intercambiar</button>
+      <button id="clear" class="btn ghost" type="button">Limpiar</button>
+    </div>
+  </section>
+
+  <section class="results" id="results" aria-live="polite"></section>
+  <div class="toast" id="toast">Copiado</div>
+</main>
+<script src="converter.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
