@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0f172a">
 <title>Conversor CUP · MXN · USDT</title>
-<link rel="stylesheet" href="styles.css?v=4">
+<link rel="stylesheet" href="styles.css?v=5">
 </head>
 <body>
 <main class="app">
@@ -28,19 +28,6 @@
   </section>
 
   <section class="card">
-    <h2>Precios</h2>
-    <label class="field"><span>pCUP · precio del peso cubano</span>
-      <input id="pCupIn" type="text" inputmode="decimal" autocomplete="off"><small class="err" id="err-pCupIn"></small></label>
-    <label class="field"><span>USDT · MXN por 1 USDT</span>
-      <input id="usdt" type="text" inputmode="decimal" autocomplete="off"><small class="err" id="err-usdt"></small></label>
-  </section>
-
-  <section class="res">
-    <div><div class="lab">pCUP · pCUP ÷ USDT</div><div class="val" id="out-pCup">—</div></div>
-    <button class="copy" type="button" aria-label="Copiar pCUP" data-copy="pCup"></button>
-  </section>
-
-  <section class="card">
     <h2>Cantidad en MXN</h2>
     <div class="amount-row">
       <input id="amountMxn" type="text" inputmode="decimal" placeholder="0" autocomplete="off" aria-label="Cantidad en MXN">
@@ -51,13 +38,13 @@
   </section>
 
   <section class="res">
-    <div><div class="lab">pUSDT · Cantidad MXN ÷ USDT</div><div class="val" id="out-pUsdt">—</div></div>
+    <div><div class="lab">pUSDT · Cantidad ÷ MXN</div><div class="val" id="out-pUsdt">—</div></div>
     <button class="copy" type="button" aria-label="Copiar pUSDT" data-copy="pUsdt"></button>
   </section>
 
   <div class="toast" id="toast">Copiado</div>
 </main>
-<script src="converter.js?v=4"></script>
-<script src="app.js?v=4"></script>
+<script src="converter.js?v=5"></script>
+<script src="app.js?v=5"></script>
 </body>
 </html>
