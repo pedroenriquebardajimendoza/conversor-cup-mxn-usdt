@@ -1,8 +1,8 @@
 /* Interfaz: lee los campos, llama a Converter y pinta resultados al instante. */
 (function () {
-  var C = window.Converter, KEY = 'conversor-tasas-v2';
+  var C = window.Converter, KEY = 'conversor-tasas-v3';
   var $ = function (id) { return document.getElementById(id); };
-  var FIELDS = ['cup', 'mxn', 'pPc', 'amountMxn'];
+  var FIELDS = ['cup', 'mxn', 'pCupIn', 'usdt', 'amountMxn']; var SAVED = ['cup', 'mxn', 'pCupIn', 'usdt'];
   var ICON = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>';
   var outputs = {};
 
@@ -34,11 +34,12 @@
     $('out-' + key).textContent = outputs[key] === null ? '—' : outputs[key];
   }
   function render() {
-    var cup = check('cup', false), mxn = check('mxn', true), pPc = check('pPc', true), amt = check('amountMxn', false);
+    var cup = check('cup', false), mxn = check('mxn', true), pCupIn = check('pCupIn', false), usdt = check('usdt', true), amt = check('amountMxn', false);
     show('pmxn', cup !== null && mxn !== null ? C.pmxn(cup, mxn) : null, 4);
-    show('pUsdt', amt !== null && mxn !== null ? C.pUsdt(amt, mxn) : null, 3);
+    show('pCup', pCupIn !== null && usdt !== null ? C.pCup(pCupIn, usdt) : null, 4);
+    show('pUsdt', amt !== null && usdt !== null ? C.pUsdt(amt, usdt) : null, 3);
     var save = {};
-    ['cup', 'mxn', 'pPc'].forEach(function (k) { save[k] = $(k).value; });
+    SAVED.forEach(function (k) { save[k] = $(k).value; });
     try { localStorage.setItem(KEY, JSON.stringify(save)); } catch (e) {}
   }
   function setDefaults(keys) { keys.forEach(function (k) { $(k).value = fmtRaw(C.DEFAULTS[k]); }); }
@@ -55,9 +56,9 @@
     b.onclick = function () { var v = outputs[b.dataset.copy]; if (v) copy(v.replace(/,/g, '')); };
   });
   $('clear').onclick = function () { $('amountMxn').value = ''; render(); $('amountMxn').focus(); };
-  $('reset').onclick = function () { setDefaults(['cup', 'mxn', 'pPc']); render(); };
+  $('reset').onclick = function () { setDefaults(SAVED); render(); };
 
   setDefaults(FIELDS);
-  try { var s = JSON.parse(localStorage.getItem(KEY)); if (s) ['cup', 'mxn', 'pPc'].forEach(function (k) { if (s[k]) $(k).value = s[k]; }); } catch (e) {}
+  try { var s = JSON.parse(localStorage.getItem(KEY)); if (s) SAVED.forEach(function (k) { if (s[k]) $(k).value = s[k]; }); } catch (e) {}
   render();
 })();

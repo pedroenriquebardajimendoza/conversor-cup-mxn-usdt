@@ -20,13 +20,24 @@
       <input id="cup" type="text" inputmode="decimal" autocomplete="off"><small class="err" id="err-cup"></small></label>
     <label class="field"><span>MXN</span>
       <input id="mxn" type="text" inputmode="decimal" autocomplete="off"><small class="err" id="err-mxn"></small></label>
-    <label class="field"><span>pPc</span>
-      <input id="pPc" type="text" inputmode="decimal" autocomplete="off"><small class="err" id="err-pPc"></small></label>
   </section>
 
-  <section class="res" data-key="pmxn">
+  <section class="res">
     <div><div class="lab">pmxn · CUP ÷ MXN</div><div class="val" id="out-pmxn">—</div></div>
     <button class="copy" type="button" aria-label="Copiar pmxn" data-copy="pmxn"></button>
+  </section>
+
+  <section class="card">
+    <h2>Precios</h2>
+    <label class="field"><span>pCUP · precio del peso cubano</span>
+      <input id="pCupIn" type="text" inputmode="decimal" autocomplete="off"><small class="err" id="err-pCupIn"></small></label>
+    <label class="field"><span>USDT · MXN por 1 USDT</span>
+      <input id="usdt" type="text" inputmode="decimal" autocomplete="off"><small class="err" id="err-usdt"></small></label>
+  </section>
+
+  <section class="res">
+    <div><div class="lab">pCUP · pCUP ÷ USDT</div><div class="val" id="out-pCup">—</div></div>
+    <button class="copy" type="button" aria-label="Copiar pCUP" data-copy="pCup"></button>
   </section>
 
   <section class="card">
@@ -39,8 +50,8 @@
     <button id="clear" class="btn ghost" type="button">Limpiar</button>
   </section>
 
-  <section class="res" data-key="pUsdt">
-    <div><div class="lab">pUSDT · Cantidad ÷ MXN</div><div class="val" id="out-pUsdt">—</div></div>
+  <section class="res">
+    <div><div class="lab">pUSDT · Cantidad MXN ÷ USDT</div><div class="val" id="out-pUsdt">—</div></div>
     <button class="copy" type="button" aria-label="Copiar pUSDT" data-copy="pUsdt"></button>
   </section>
 
