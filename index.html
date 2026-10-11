@@ -14,40 +14,36 @@
   <section class="card">
     <div class="card-head">
       <h2>Tasas de conversión</h2>
-      <button id="resetRates" class="btn ghost small" type="button">Restablecer tasas</button>
+      <button id="reset" class="btn ghost small" type="button">Restablecer tasas</button>
     </div>
-    <label class="field">
-      <span>pPc · CUP por 1 USDT</span>
-      <input id="ratePpc" type="text" inputmode="decimal" autocomplete="off">
-      <small class="err" id="errPpc"></small>
-    </label>
-    <label class="field">
-      <span>pmxn · MXN por 1 USDT</span>
-      <input id="ratePmxn" type="text" inputmode="decimal" autocomplete="off">
-      <small class="err" id="errPmxn"></small>
-    </label>
-    <p class="derived" id="derived"></p>
+    <label class="field"><span>CUP</span>
+      <input id="cup" type="text" inputmode="decimal" autocomplete="off"><small class="err" id="err-cup"></small></label>
+    <label class="field"><span>MXN</span>
+      <input id="mxn" type="text" inputmode="decimal" autocomplete="off"><small class="err" id="err-mxn"></small></label>
+    <label class="field"><span>pPc</span>
+      <input id="pPc" type="text" inputmode="decimal" autocomplete="off"><small class="err" id="err-pPc"></small></label>
+  </section>
+
+  <section class="res" data-key="pmxn">
+    <div><div class="lab">pmxn · CUP ÷ MXN</div><div class="val" id="out-pmxn">—</div></div>
+    <button class="copy" type="button" aria-label="Copiar pmxn" data-copy="pmxn"></button>
   </section>
 
   <section class="card">
-    <h2>Cantidad</h2>
-    <div class="seg" id="fromSeg" role="radiogroup" aria-label="Moneda de origen">
-      <button type="button" data-cur="CUP">CUP</button>
-      <button type="button" data-cur="MXN">MXN</button>
-      <button type="button" data-cur="USDT">USDT</button>
-    </div>
+    <h2>Cantidad en MXN</h2>
     <div class="amount-row">
-      <input id="amount" type="text" inputmode="decimal" placeholder="0" autocomplete="off" aria-label="Cantidad">
-      <span class="cur-tag" id="fromTag">CUP</span>
+      <input id="amountMxn" type="text" inputmode="decimal" placeholder="0" autocomplete="off" aria-label="Cantidad en MXN">
+      <span class="cur-tag">MXN</span>
     </div>
-    <small class="err" id="errAmount"></small>
-    <div class="actions">
-      <button id="swap" class="btn" type="button">⇅ Intercambiar</button>
-      <button id="clear" class="btn ghost" type="button">Limpiar</button>
-    </div>
+    <small class="err" id="err-amountMxn"></small>
+    <button id="clear" class="btn ghost" type="button">Limpiar</button>
   </section>
 
-  <section class="results" id="results" aria-live="polite"></section>
+  <section class="res" data-key="pUsdt">
+    <div><div class="lab">pUSDT · Cantidad ÷ MXN</div><div class="val" id="out-pUsdt">—</div></div>
+    <button class="copy" type="button" aria-label="Copiar pUSDT" data-copy="pUsdt"></button>
+  </section>
+
   <div class="toast" id="toast">Copiado</div>
 </main>
 <script src="converter.js"></script>
